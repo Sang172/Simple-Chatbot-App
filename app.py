@@ -8,7 +8,7 @@ from langchain.llms import OpenAI
 import os
 
 def get_openai_response(question):
-    llm = OpenAI(model_name="gpt-3.5-turbo",temperature=0.5)
+    llm = OpenAI(model_name="gpt-3.5-turbo",temperature=0.5,max_tokens=1000)
     response=llm(question)
     return response
 
