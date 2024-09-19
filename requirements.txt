@@ -1,6 +1,3 @@
-langchain
 openai==0.28
-langchain_community
-huggingface-hub
 python-dotenv
 streamlit

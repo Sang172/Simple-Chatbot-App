@@ -1,17 +1,22 @@
 
 import streamlit as st
-
+import os
+import openai
 from dotenv import load_dotenv
 load_dotenv()
-
-from langchain.llms import OpenAI
-import os
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def get_openai_response(question):
-    llm = OpenAI(model_name="gpt-3.5-turbo",temperature=0.5,max_tokens=1000)
-    response=llm(question)
-    return response
-
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[{"role": "user", "content": question}],
+            temperature=0.5,
+            max_tokens=1000
+        )
+        return response.choices[0].message['content']
+    except Exception as e:
+        return f"An error occurred: {e}"
 
 st.set_page_config(page_title='Q&A Demo')
 
