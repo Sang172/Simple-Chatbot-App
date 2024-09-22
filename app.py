@@ -9,7 +9,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 def get_openai_response(question):
     try:
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
+            model="gpt-4o-mini",
             messages=[{"role": "user", "content": question}],
             temperature=0.5,
             max_tokens=1000
@@ -20,7 +20,7 @@ def get_openai_response(question):
 
 st.set_page_config(page_title='Q&A Demo')
 
-st.header("Langchain Application")
+st.header("OpenAI API")
 
 
 input=st.text_input("Input: ", key="input")
