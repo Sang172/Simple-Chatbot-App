@@ -18,6 +18,7 @@ def get_openai_response(question):
     except Exception as e:
         return f"An error occurred: {e}"
 
+
 st.set_page_config(page_title='Q&A Demo')
 
 st.header("OpenAI API")
